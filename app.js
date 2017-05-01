@@ -6,6 +6,7 @@ app.set('port', (process.env.PORT || 3210));
 app.all('*', function (req, res, next) {
     if (!req.get('Origin')) return next();
     // use "*" here to accept any origin
+    res.set('x-powered-by', false);
     res.set('Access-Control-Allow-Origin', '*');
     res.set('Access-Control-Allow-Methods', 'GET');
     res.set('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type');
